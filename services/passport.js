@@ -18,7 +18,8 @@ passport.use(
     new GoogleStrategy({
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true
     }, (accessToken, refreshToken, profile, done)=> {
         //check if user exists; if not, make one
         //googleId is what is shown in DB; profile.id is coming from this passport call
